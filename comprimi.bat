@@ -1,0 +1,1 @@
+\upx\upx.exe SQLServerBackup.exe

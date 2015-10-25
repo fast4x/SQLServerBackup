@@ -1,0 +1,641 @@
+object Form1: TForm1
+  Left = 322
+  Height = 521
+  Top = 42
+  Width = 688
+  Caption = 'fast SQLServerBackup'
+  ClientHeight = 501
+  ClientWidth = 688
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '1.1'
+  object Memo1: TMemo
+    Left = 0
+    Height = 27
+    Top = 448
+    Width = 688
+    Align = alBottom
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 0
+    Visible = False
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 448
+    Top = 0
+    Width = 688
+    ActivePage = TabSheet2
+    Align = alClient
+    Anchors = [akTop, akRight, akBottom]
+    TabIndex = 1
+    TabOrder = 1
+    object TabSheet1: TTabSheet
+      Caption = 'Server'
+      ClientHeight = 420
+      ClientWidth = 680
+      object BitBtn1: TBitBtn
+        Left = 580
+        Height = 37
+        Top = 372
+        Width = 75
+        Anchors = [akRight, akBottom]
+        Caption = 'Avanti'
+        OnClick = BitBtn1Click
+        TabOrder = 0
+      end
+      object GroupBox1: TGroupBox
+        Left = 12
+        Height = 368
+        Top = 16
+        Width = 656
+        Caption = 'Lista connessioni preferite'
+        ClientHeight = 350
+        ClientWidth = 652
+        TabOrder = 1
+        object DBGrid2: TDBGrid
+          Left = 6
+          Height = 304
+          Top = 8
+          Width = 312
+          Color = clWindow
+          Columns = <          
+            item
+              Title.Caption = 'Connessione'
+              FieldName = 'descr'
+            end>
+          DataSource = Datasource2
+          TabOrder = 0
+        end
+        object DBEdit1: TDBEdit
+          Left = 336
+          Height = 23
+          Top = 24
+          Width = 305
+          DataField = 'descr'
+          DataSource = Datasource2
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object Label3: TLabel
+          Left = 334
+          Height = 15
+          Top = 8
+          Width = 129
+          Caption = 'Descrizione connessione'
+          ParentColor = False
+        end
+        object DBEdit2: TDBEdit
+          Left = 336
+          Height = 23
+          Top = 72
+          Width = 192
+          DataField = 'host'
+          DataSource = Datasource2
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 2
+        end
+        object Label4: TLabel
+          Left = 336
+          Height = 15
+          Top = 56
+          Width = 149
+          Caption = 'Host (\istanza se necessario)'
+          ParentColor = False
+        end
+        object DBEdit3: TDBEdit
+          Left = 542
+          Height = 23
+          Top = 72
+          Width = 99
+          DataField = 'port'
+          DataSource = Datasource2
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 3
+        end
+        object Label5: TLabel
+          Left = 542
+          Height = 15
+          Top = 56
+          Width = 77
+          Caption = 'Porta (0=pred)'
+          ParentColor = False
+        end
+        object Label6: TLabel
+          Left = 336
+          Height = 15
+          Top = 104
+          Width = 35
+          Caption = 'Utente'
+          ParentColor = False
+        end
+        object DBEdit4: TDBEdit
+          Left = 336
+          Height = 23
+          Top = 120
+          Width = 142
+          DataField = 'user'
+          DataSource = Datasource2
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 4
+        end
+        object Label7: TLabel
+          Left = 497
+          Height = 15
+          Top = 104
+          Width = 50
+          Caption = 'Password'
+          ParentColor = False
+        end
+        object DBEdit5: TDBEdit
+          Left = 497
+          Height = 23
+          Top = 117
+          Width = 144
+          DataField = 'pass'
+          DataSource = Datasource2
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 5
+        end
+        object Label8: TLabel
+          Left = 338
+          Height = 15
+          Top = 152
+          Width = 48
+          Caption = 'Database'
+          ParentColor = False
+          Visible = False
+        end
+        object DBEdit6: TDBEdit
+          Left = 338
+          Height = 23
+          Top = 168
+          Width = 142
+          DataField = 'database'
+          DataSource = Datasource2
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 6
+          Visible = False
+        end
+        object Label9: TLabel
+          Left = 499
+          Height = 15
+          Top = 152
+          Width = 42
+          Caption = 'Schema'
+          ParentColor = False
+          Visible = False
+        end
+        object DBEdit7: TDBEdit
+          Left = 497
+          Height = 23
+          Top = 168
+          Width = 144
+          DataSource = Datasource2
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 7
+          Visible = False
+        end
+        object DBNavigator1: TDBNavigator
+          Left = 366
+          Height = 25
+          Top = 224
+          Width = 241
+          BevelOuter = bvNone
+          ChildSizing.EnlargeHorizontal = crsScaleChilds
+          ChildSizing.EnlargeVertical = crsScaleChilds
+          ChildSizing.ShrinkHorizontal = crsScaleChilds
+          ChildSizing.ShrinkVertical = crsScaleChilds
+          ChildSizing.Layout = cclLeftToRightThenTopToBottom
+          ChildSizing.ControlsPerLine = 100
+          ClientHeight = 25
+          ClientWidth = 241
+          DataSource = Datasource2
+          Options = []
+          TabOrder = 8
+        end
+        object BitBtn8: TBitBtn
+          Left = 534
+          Height = 30
+          Top = 304
+          Width = 107
+          Caption = 'Test connessione'
+          OnClick = BitBtn8Click
+          TabOrder = 9
+        end
+        object DBComboBox1: TDBComboBox
+          Left = 358
+          Height = 23
+          Top = 288
+          Width = 99
+          DataField = 'dbtype'
+          DataSource = Datasource2
+          ItemHeight = 15
+          Items.Strings = (
+            'mssql'
+          )
+          MaxLength = 0
+          Sorted = True
+          Style = csDropDownList
+          TabOrder = 10
+          Visible = False
+        end
+        object Label11: TLabel
+          Left = 358
+          Height = 15
+          Top = 272
+          Width = 42
+          Caption = 'Tipo DB'
+          ParentColor = False
+          Visible = False
+        end
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Databases'
+      ClientHeight = 420
+      ClientWidth = 680
+      OnShow = TabSheet2Show
+      object Button1: TButton
+        Left = 244
+        Height = 25
+        Top = 40
+        Width = 192
+        Caption = 'Aggiorna lista databases'
+        OnClick = Button1Click
+        TabOrder = 0
+      end
+      object DBGrid1: TDBGrid
+        Left = 516
+        Height = 75
+        Top = 141
+        Width = 164
+        Color = clWindow
+        Columns = <>
+        DataSource = Datasource1
+        TabOrder = 1
+        Visible = False
+      end
+      object BitBtn2: TBitBtn
+        Left = 580
+        Height = 37
+        Top = 368
+        Width = 75
+        Anchors = [akRight, akBottom]
+        Caption = 'Indietro'
+        OnClick = BitBtn2Click
+        TabOrder = 2
+      end
+      object BitBtn3: TBitBtn
+        Left = 580
+        Height = 37
+        Top = 312
+        Width = 75
+        Anchors = [akRight, akBottom]
+        Caption = 'Avanti'
+        Enabled = False
+        OnClick = BitBtn3Click
+        TabOrder = 3
+        Visible = False
+      end
+      object Label10: TLabel
+        Left = 300
+        Height = 15
+        Top = 280
+        Width = 311
+        Caption = 'Backup database in corso, attendere il completamento...'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        Visible = False
+      end
+      object Label12: TLabel
+        Left = 12
+        Height = 15
+        Top = 8
+        Width = 79
+        Caption = 'Lista databases'
+        ParentColor = False
+      end
+      object ldb: TListBox
+        Left = 12
+        Height = 376
+        Top = 32
+        Width = 220
+        ItemHeight = 0
+        TabOrder = 4
+      end
+      object Button5: TButton
+        Left = 367
+        Height = 82
+        Top = 168
+        Width = 192
+        Caption = 'Backup database selezionato'
+        OnClick = Button5Click
+        TabOrder = 5
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Destinazione'
+      ClientHeight = 420
+      ClientWidth = 680
+      OnShow = TabSheet3Show
+      TabVisible = False
+      object Button2: TButton
+        Left = 476
+        Height = 25
+        Top = 24
+        Width = 168
+        Caption = 'Crea tabella dest'
+        OnClick = Button2Click
+        TabOrder = 0
+        Visible = False
+      end
+      object Edit1: TEdit
+        Left = 172
+        Height = 23
+        Top = 96
+        Width = 248
+        OnChange = Edit1Change
+        TabOrder = 1
+      end
+      object Label1: TLabel
+        Left = 172
+        Height = 15
+        Top = 80
+        Width = 140
+        Caption = 'Nome tabella destinazione'
+        ParentColor = False
+      end
+      object Label2: TLabel
+        Left = 173
+        Height = 15
+        Top = 32
+        Width = 185
+        Caption = 'Nome schema (vuoto=predefinito)'
+        ParentColor = False
+        Visible = False
+      end
+      object Edit2: TEdit
+        Left = 172
+        Height = 23
+        Top = 48
+        Width = 248
+        TabOrder = 2
+        Visible = False
+      end
+      object BitBtn4: TBitBtn
+        Left = 484
+        Height = 37
+        Top = 372
+        Width = 75
+        Anchors = [akRight, akBottom]
+        Caption = 'Indietro'
+        OnClick = BitBtn4Click
+        TabOrder = 3
+      end
+      object BitBtn5: TBitBtn
+        Left = 580
+        Height = 37
+        Top = 372
+        Width = 75
+        Anchors = [akRight, akBottom]
+        Caption = 'Avanti'
+        OnClick = BitBtn5Click
+        TabOrder = 4
+      end
+      object CheckBox2: TCheckBox
+        Left = 172
+        Height = 19
+        Top = 128
+        Width = 186
+        Caption = 'Creare la tabella di destinazione'
+        Checked = True
+        OnChange = CheckBox2Change
+        State = cbChecked
+        TabOrder = 5
+      end
+      object Memo2: TMemo
+        Left = 172
+        Height = 197
+        Top = 200
+        Width = 249
+        Font.Pitch = fpFixed
+        Lines.Strings = (
+          'Memo2'
+        )
+        ParentFont = False
+        ReadOnly = True
+        ScrollBars = ssAutoBoth
+        TabOrder = 6
+        Visible = False
+      end
+      object CheckBox1: TCheckBox
+        Left = 172
+        Height = 19
+        Top = 152
+        Width = 411
+        Caption = 'Se esiste già e contiene records, svuota la tabella prima di copiare i records'
+        TabOrder = 7
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'Backup'
+      ClientHeight = 420
+      ClientWidth = 680
+      OnContextPopup = TabSheet4ContextPopup
+      OnShow = TabSheet4Show
+      TabVisible = False
+      object Button3: TButton
+        Left = 156
+        Height = 25
+        Top = 288
+        Width = 104
+        Caption = 'Carica records'
+        OnClick = Button3Click
+        TabOrder = 0
+        Visible = False
+      end
+      object Button4: TButton
+        Left = 307
+        Height = 25
+        Top = 288
+        Width = 75
+        Caption = 'Salva'
+        OnClick = Button4Click
+        TabOrder = 1
+        Visible = False
+      end
+      object BitBtn6: TBitBtn
+        Left = 388
+        Height = 37
+        Top = 372
+        Width = 75
+        Anchors = [akRight, akBottom]
+        Caption = 'Indietro'
+        OnClick = BitBtn6Click
+        TabOrder = 2
+      end
+      object BitBtn7: TBitBtn
+        Left = 484
+        Height = 37
+        Top = 372
+        Width = 75
+        Anchors = [akRight, akBottom]
+        Caption = 'Importa'
+        OnClick = BitBtn7Click
+        TabOrder = 3
+      end
+      object GroupBox2: TGroupBox
+        Left = 4
+        Height = 219
+        Top = 13
+        Width = 672
+        Caption = 'Riepilogo operazioni'
+        ClientHeight = 201
+        ClientWidth = 668
+        TabOrder = 4
+        object Memo3: TMemo
+          Left = 6
+          Height = 176
+          Top = 3
+          Width = 656
+          Font.Pitch = fpFixed
+          ParentFont = False
+          TabOrder = 0
+        end
+      end
+      object BitBtn9: TBitBtn
+        Left = 580
+        Height = 37
+        Top = 372
+        Width = 75
+        Anchors = [akRight, akBottom]
+        Caption = 'Nuovo'
+        OnClick = BitBtn9Click
+        TabOrder = 5
+      end
+    end
+  end
+  object MsgPanel: TPanel
+    Left = 0
+    Height = 26
+    Top = 475
+    Width = 688
+    Align = alBottom
+    Alignment = taLeftJustify
+    BevelInner = bvLowered
+    Caption = 'Ready'
+    ClientHeight = 26
+    ClientWidth = 688
+    TabOrder = 2
+    object ProgressBar1: TProgressBar
+      Left = 476
+      Height = 20
+      Top = 3
+      Width = 208
+      Anchors = [akTop, akLeft, akRight]
+      Max = 10
+      Step = 1
+      TabOrder = 0
+      Visible = False
+      BarShowText = True
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Title = 'Apri file .dbf'
+    DefaultExt = '.dbf'
+    Filter = 'dBase|*.dbf|Tutti i files|*.*'
+    FilterIndex = 0
+    InitialDir = '/'
+    left = 72
+    top = 72
+  end
+  object Datasource1: TDatasource
+    DataSet = ZQuery1
+    left = 112
+    top = 224
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = False
+    ClientCodepage = 'UTF8'
+    Properties.Strings = (
+      'schema=si'
+      'codepage=UTF8'
+    )
+    HostName = 'localhost'
+    Port = 0
+    Protocol = 'mssql'
+    left = 64
+    top = 160
+  end
+  object ZQuery1: TZQuery
+    Connection = ZConnection1
+    Params = <>
+    left = 48
+    top = 224
+  end
+  object Datasource2: TDatasource
+    DataSet = dbsrv
+    left = 112
+    top = 288
+  end
+  object MainMenu1: TMainMenu
+    left = 160
+    top = 88
+    object MenuItem1: TMenuItem
+      Caption = 'File'
+      object MenuItem4: TMenuItem
+        Caption = 'Esci'
+        OnClick = MenuItem4Click
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = '?'
+      object MenuItem3: TMenuItem
+        Caption = 'Informazioni'
+        OnClick = MenuItem3Click
+      end
+    end
+  end
+  object sdfdataset1: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    left = 113
+    top = 348
+  end
+  object Savebck: TSaveDialog
+    Title = 'Backup database'
+    DefaultExt = '.bak'
+    Filter = 'MSSQL Backup|*.bak|Tutti i files|*.*'
+    left = 192
+    top = 232
+  end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    left = 264
+    top = 216
+  end
+  object dbsrv: TDbf
+    IndexDefs = <>
+    IndexName = 'DESCR'
+    TableLevel = 4
+    FilterOptions = [foCaseInsensitive]
+    BeforeInsert = dbsrvBeforeInsert
+    AfterInsert = dbsrvAfterInsert
+    AfterScroll = dbsrvAfterScroll
+    left = 43
+    top = 287
+  end
+end
